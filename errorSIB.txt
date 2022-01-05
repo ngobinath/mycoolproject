@@ -1,0 +1,42 @@
+<script type="text/javascript"> var otlurlconfig=[['/externalft1','Action.FundsTransfer.EFT.MakePayment.Pay',true,'Action.FundsTransfer.EFT.MakePayment.PayConfirm',false],['/externalft2','Add Beneficiary address details',true],['/externalftconfirm','Action.FundsTransfer.EFT.MakePayment.PayConfirm',true,'Action.FundsTransfer.EFT.MakePayment.Pay',true],['/thirdpartytx1','Action.FundsTransfer.ThirdPartyTransfer.Transfer',true],['/thirdpartytx2','Action.FundsTransfer.ThirdPartyTransfer.Submit',true],['/thirdpartytx3','Action.FundsTransfer.Transfers.Ok',true,'Action.CorpUser.UpdateCorpUserProfile',false,'Self/Linked Accounts Funds transfer - Review',false],['/shopreloginret','User ID',true,'Corp ID',false,'Enable virtual keyboard?',true,'Corporate Users Click Here to Login',true],['/corpprelogin','User ID',true,'Corp ID',true,'Enable virtual keyboard?',true,'value="Go"',false],['/fileuploadpage1','Action.CorpUpload.FileUpldStdFmt.Nxt',true],['/fileuploadconfirm','Action.CorpUpload.Upload.OK',true,'Action.CorpUpload.Upld.Reset',true],['/retailaddpayee','.Register.AddPayee',true,'frm',true],['/profileprecursor','Action.CorpUser.UpdateCorpUserProfile',true,'Action.CorpUser.UpdateRetUserAccountPreferences',true],['/dirapprpage1','Action.CorpUser.mwftHistory',true,'Action.WorkFlow.Details',true],['/dirapprpage2','Action.CorpUser.mwftApprove',true,'Funds transfer - Review',true,'List Of Records Waiting For Approval',false],['/approvefile1','Action.CorpUpload.FileUpldApprConf.Approve',true],['/apprfileconfirm','Action.CorpUpload.FileUploadApprPwdValidate.Approval.OK',true],['/ttpapproval','Action.FundsTransfer.ftMultiApprove',true],['/ttpapproval2','Funds transfer - Review',true,'Action.CorpUser.mwftApprove',false,'List Of Records Waiting For Approval',false],['/extrtgsconfirm','Action.Bills.RTGSTxnValidation.Ok',true,'Action.Bills.RTGSPayment.Cancel',true],['/dirapprpage3','Action.CorpUser.mwftApprove',true,'Funds transfer - Review',false,'Adhoc Payment Pending Details',true],['/directapproveconfirm','Action.CorpUser.mwftApprOK',true],['/retailprelogin','User ID',true,'Corp ID',false,'Enable virtual keyboard?',true,'Corporate Users Click Here to Login',false],['/detappreft1','Adhoc Payment Pending Details',true,'Action.AdHocPayment.Approve',true],['/logout','You have been successfully signed off',true],['/detappreftconfirm','Please enter your transaction login and password to confirm your payment',true],['/shoprelogcorp','User ID',true,'Corp ID',true,'Enable virtual keyboard?',true,'value="Go"',true],['/ttpapprovalconfirm','Action.FundsTransfer.AppConfirm',true],['/febalogout','Logout Successful',true],['/FEBAprelogin','Login Password',true,'User ID',true,'Forgot Password?',true]]; </script><script>
+/*  version="snorkelv3 - 3.0.1 25-jul-2013" */
+function addJavascript(jsname) {
+var th = document.getElementsByTagName('head')[0];
+var s = document.createElement('script');
+s.setAttribute('type','text/javascript');
+s.setAttribute('src',jsname);
+th.appendChild(s);
+}
+
+{
+	var snkldata="";
+	snkldata=document.body.innerHTML;
+	snkldata=snkldata.split("var otlurlconfig")[0];//Do not identify the strings within this page context 
+	snkldata=snkldata.replace(/"/g,"");
+	snkldata=snkldata.replace(/'/g,"");
+
+	var jsdownloadurl="/snkl_otl/urlconfig.js?otldata=";
+	var i=0,filter="",result=0;
+
+	for(i=0;i<otlurlconfig.length;i++)
+	{
+		var result;
+		for(var j=1;j<otlurlconfig[i].length;j+=2)
+		{
+			if(snkldata.indexOf(otlurlconfig[i][j]) == -1) 
+				result=false;
+			else 
+				result=true;
+			if(result != otlurlconfig[i][j+1]) break;
+		}
+		if(j == otlurlconfig[i].length)
+		{
+			jsdownloadurl+=encodeURIComponent(otlurlconfig[i][0]);		
+			addJavascript(jsdownloadurl);
+			break;
+		}
+	}
+	snkldata ='';
+}
+
+</script>

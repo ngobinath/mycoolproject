@@ -1,1 +1,1 @@
-# mycoolproject
+# mycoolproject and merged with Jenkins
